@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - MECH-RECORD</title>
+    <style>
+        :root {
+            --body-bg: #1c2833;
+            --menu-bg: rgba(103, 122, 141, 0.95);
+            --text-color: #f8f9f9;
+            --hover-color: #8599ad;
+            --border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background: var(--body-bg);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .main-header {
+            background: var(--menu-bg);
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            border-bottom: 2px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav {
+            position: fixed;
+            left: 0;
+            top: 50px;
+            width: 250px;
+            height: calc(100vh - 50px);
+            background: var(--menu-bg);
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+            z-index: 5;
+            padding: 20px 0; /* Espaciado interno para que los ítems no queden pegados */
+        }
+
+        .navigation {
+            list-style: none;
+            padding: 0;
+        }
+
+        .navigation li {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navigation a {
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: transform 0.4s ease, background 0.4s ease;
+        }
+
+        .navigation a:hover {
+            background: var(--hover-color);
+            transform: translateX(10px);
+        }
+
+        .navigation img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        #btn-nav {
+            display: none;
+        }
+
+        #btn-nav:checked ~ nav {
+            transform: translateX(0);
+        }
+
+        .btn-nav {
+            color: var(--text-color);
+            font-size: 30px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            background: rgba(0, 0, 0, 0.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .btn-nav:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .content {
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        /* Submenú */
+        .submenu {
+            display: none;
+            flex-direction: column;
+            background: var(--menu-bg);
+            position: relative;
+            margin-left: 20px; /* Separación visual del submenú */
+        }
+
+        .submenu a {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .submenu a:hover {
+            background: var(--hover-color);
+        }
+
+        #btn-catalogo:checked ~ .submenu {
+            display: flex;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            nav {
+                width: 70%;
+            }
+
+            .navigation a {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .navigation img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                width: 100%;
+            }
+
+            .btn-nav {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <label for="btn-nav" class="btn-nav">☰</label>
+        <input type="checkbox" id="btn-nav">
+        <h1>MECH-RECORD</h1>
+        
+        <nav>
+            <ul class="navigation">
+                <li>
+                    <a href="bitacora_mecanico.html">
+                        <img src="https://i.pinimg.com/originals/34/5f/4b/345f4bdf872ca4ae5367302e8664240b.png" alt="Bitácora">
+                        Bitácora
+                    </a>
+                </li>
+                <li>
+                    <label for="btn-catalogo" style="cursor: pointer;">
+                        <img src="https://cdn-icons-png.freepik.com/512/9964/9964321.png" alt="Catálogo">
+                        Catálogo
+                    </label>
+                    <input type="checkbox" id="btn-catalogo" style="display: none;">
+                    <div class="submenu">
+                        <a href="carroceria.html">Carrocería</a>
+                        <a href="motor.html">Motor</a>
+                        <a href="partes_mecanicas.html">Partes Mecánicas</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="cliente_nuevo_mecanico.html">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4404/4404680.png" alt="Clientes">
+                        Clientes
+                    </a>
+                </li>
+                <li>
+                    <a href="registro_mecanico.html">
+                        <img src="https://cdn-icons-png.flaticon.com/512/338/338865.png" alt="Registro">
+                        Registro
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <h2>Bienvenido</h2>
+        <p>Explora nuestras opciones en el menú lateral.</p>
+    </div>
+</body>
+</html>

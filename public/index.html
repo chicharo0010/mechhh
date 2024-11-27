@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MECH-RECORD</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>MECH-RECORD</h1>
+        <div class="tabs">
+            <button id="loginTab" class="active">Iniciar Sesión</button>
+            <button id="registerTab">Registrar</button>
+        </div>
+
+        <div id="loginForm" class="form-container active">
+            <form id="form-inicio-sesion">
+                <label for="correo_i">Correo Electrónico</label>
+                <input type="text" name="correo_i" id="correo_i" placeholder="ejemplo@gmail.com" required>
+
+                <label for="contra_i">Contraseña</label>
+                <input type="password" name="contra_i" id="contra_i" required>
+
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+
+        <div id="registerForm" class="form-container">
+            <form id="form-registro">
+                <label for="Usuario_r">Nombre de Usuario</label>
+                <input type="text" name="Usuario_r" id="Usuario_r" placeholder="Nombre de usuario" required>
+
+                <label for="correo_r">Correo Electrónico (Gmail)</label>
+                <input type="email" name="correo_r" id="correo_r" placeholder="ejemplo@gmail.com" required>
+
+                <label for="contra_r">Contraseña</label>
+                <input type="password" name="contra_r" id="contra_r" required>
+
+                <label for="contra_r2">Verificar Contraseña</label>
+                <input type="password" name="contra_r2" id="contra_r2" required>
+
+                <label for="role">Selecciona tu Rol</label>
+                <div class="select-container">
+                    <select id="role" required>
+                        <option value="" disabled selected>Elige una opción</option>
+                        <option value="cliente">Cliente</option>
+                        <option value="mecanico">Mecánico</option>
+                    </select>
+                </div>
+
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Cambio de pestañas (iniciar sesión / registro)
+        const loginTab = document.getElementById('loginTab');
+        const registerTab = document.getElementById('registerTab');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+
+        loginTab.addEventListener('click', () => {
+            loginTab.classList.add('active');
+            registerTab.classList.remove('active');
+            loginForm.classList.add('active');
+            registerForm.classList.remove('active');
+        });
+
+        registerTab.addEventListener('click', () => {
+            registerTab.classList.add('active');
+            loginTab.classList.remove('active');
+            registerForm.classList.add('active');
+            loginForm.classList.remove('active');
+        });
+    </script>
+    <script src="js/validaciones.js"></script>
+</body>
+</html>
